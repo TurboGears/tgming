@@ -3,14 +3,16 @@ import sys, os
 
 version = '0.0.1'
 
+here = os.path.abspath(os.path.dirname(__file__))
+try:
+    README = open(os.path.join(here, 'README.rst')).read()
+except IOError:
+    README = ''
+
 setup(name='tgming',
       version=version,
       description="TurboGears2 Support for Ming MongoDB ORM",
-      long_description="""\
-tgming is used by TurboGears2 to support ming backend. To create
-a ming project just use quickstart command with --ming option
-it will automatically setup tgming and all the required dependencies
-""",
+      long_description=README,
       classifiers=[
         "Environment :: Web Environment",
         "Topic :: Software Development :: Libraries :: Python Modules",
