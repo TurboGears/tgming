@@ -2,7 +2,7 @@ from zope.interface import implements
 from repoze.who.interfaces import IAuthenticator, IMetadataProvider
 from repoze.who.plugins.friendlyform import FriendlyFormPlugin
 from repoze.who.plugins.auth_tkt import AuthTktCookiePlugin
-from repoze.who.middleware import PluggableAuthenticationMiddleware
+from repoze.who.plugins.testutil import make_middleware
 
 class MingAuthenticatorPlugin(object):
     implements(IAuthenticator)
@@ -69,7 +69,7 @@ def setup_ming_auth(app, skip_authentication, **auth_args):
     from repoze.who.classifiers import default_request_classifier
     from repoze.who.classifiers import default_challenge_decider
 
-    app = PluggableAuthenticationMiddleware(
+    app = make_middleware(skip_authentication,
         app,
         identifiers=identifiers,
         authenticators=authenticators,

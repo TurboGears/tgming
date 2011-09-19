@@ -31,6 +31,7 @@ setup(name='tgming',
         "repoze.who-friendlyform >= 1.0.4",
         "repoze.what-pylons >= 1.0",
         "repoze.who==1.0.19",
+        "repoze.who-testutil >= 1.0.1",
         "ming"
           # -*- Extra requirements: -*-
       ],
