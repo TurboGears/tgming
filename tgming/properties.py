@@ -49,5 +49,5 @@ class ProgrammaticRelationProperty(RelationProperty):
 
     @LazyProperty
     def join(self):
-        return OneToManyJoin(self.cls, self.related, None)
+        return OneToManyJoin(self.mapper.mapped_class, self.related, None)
 
