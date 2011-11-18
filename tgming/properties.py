@@ -31,8 +31,9 @@ class SynonymProperty(ORMProperty):
 class ProgrammaticRelationProperty(RelationProperty):
     include_in_repr = False
 
-    def __init__(self, related, getter, setter=None):
+    def __init__(self, related, getter, setter=None, relation_field=None):
         super(ProgrammaticRelationProperty, self).__init__(related)
+        self.relation_field = relation_field
         self.getter = getter
         self.setter = setter
 
@@ -49,5 +50,5 @@ class ProgrammaticRelationProperty(RelationProperty):
 
     @LazyProperty
     def join(self):
-        return OneToManyJoin(self.mapper.mapped_class, self.related, None)
+        return OneToManyJoin(self.mapper.mapped_class, self.related, self.relation_field)
 
