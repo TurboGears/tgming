@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.0.2'
+version = '0.0.3'
 
 here = os.path.abspath(os.path.dirname(__file__))
 try:
@@ -30,7 +30,7 @@ setup(name='tgming',
         "repoze.what >= 1.0.8",
         "repoze.who-friendlyform >= 1.0.4",
         "repoze.what-pylons >= 1.0",
-        "repoze.who==1.0.19",
+        "repoze.who >= 1.0.19",
         "repoze.who-testutil >= 1.0.1",
         "ming"
           # -*- Extra requirements: -*-
