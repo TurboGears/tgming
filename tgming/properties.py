@@ -1,7 +1,7 @@
 from ming import schema as s
 from ming.orm import FieldProperty, RelationProperty
 from ming.orm.property import ORMProperty, LazyProperty, OneToManyJoin
-from pymongo.objectid import ObjectId
+from bson import ObjectId
 
 class SynonymProperty(ORMProperty):
     include_in_repr = True
