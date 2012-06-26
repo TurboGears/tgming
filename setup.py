@@ -29,7 +29,6 @@ setup(name='tgming',
       install_requires=[
         "repoze.who-friendlyform >= 1.0.4",
         "repoze.who >= 1.0.19",
-        "repoze.who-testutil >= 1.0.1",
         "ming"
           # -*- Extra requirements: -*-
       ],
