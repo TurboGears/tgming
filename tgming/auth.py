@@ -1,7 +1,5 @@
 from zope.interface import implements
 from repoze.who.interfaces import IAuthenticator, IMetadataProvider
-from repoze.who.plugins.friendlyform import FriendlyFormPlugin
-from repoze.who.plugins.auth_tkt import AuthTktCookiePlugin
 
 class MingAuthenticatorPlugin(object):
     implements(IAuthenticator)
@@ -43,6 +41,9 @@ class MingUserMDPlugin(object):
         environ['repoze.what.credentials']['repoze.what.userid'] = identity['repoze.who.userid']
 
 def setup_ming_auth(app, skip_authentication, **auth_args):
+    from repoze.who.plugins.auth_tkt import AuthTktCookiePlugin
+    from repoze.who.plugins.friendlyform import FriendlyFormPlugin
+
     cookie_secret = auth_args.get('cookie_secret', 'secret')
     cookie_name = auth_args.get('cookie_name', 'authtkt')
 
